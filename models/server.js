@@ -1,11 +1,11 @@
 const express = require("express")
 const cors = require('cors')
-const dbconnection = require('../database/config')
+const dbConnection = require('../database/config')
 
 class Server{
     constructor(){
         this.app = express()
-        this.port = process.env.PORT
+        this.port = process.env.port
         this.pedidoPath = "/api/pedido"
         this.ventasPath = "/api/ventas"
         this.productosPath = "/api/productos"
@@ -13,12 +13,9 @@ class Server{
         this.routes()
         this.dbConectar()
     }
-
     async dbConectar(){
-        await dbconnection()
+        await dbConnection()
     }
-
-
     middlewares(){
         this.app.use(cors())
         this.app.use(express.static("public"))
@@ -39,4 +36,5 @@ class Server{
     }
 
 }
+
 module.exports = Server
