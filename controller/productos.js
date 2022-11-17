@@ -24,7 +24,7 @@ const postProductos = async (req, res) => {
     await Productos.save()
 
     res.json({
-        msg: 'POST API ventas',
+        msg: 'POST API Productos',
         Productos
     })
 }

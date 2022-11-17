@@ -8,6 +8,7 @@ class Server{
         this.port = process.env.PORT
         this.pedidoPath = "/api/pedido"
         this.productosPath = "/api/productos"
+        this.ventaPath = "/api/ventas"
         this.middlewares()
         this.routes()
         this.dbConectar()
@@ -24,6 +25,7 @@ class Server{
     routes(){
         this.app.use(this.pedidoPath, require("../routes/pedidos"))
         this.app.use(this.productosPath, require("../routes/productos"))
+        this.app.use(this.ventaPath, require("../routes/ventas"))
     }
 
     listen(){
