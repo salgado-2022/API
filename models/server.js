@@ -1,6 +1,6 @@
 const express = require("express")
 const cors = require('cors')
-const {dbConnection} = require('../database/config')
+const {dbconnection} = require('../database/config')
 
 class Server{
     constructor(){
@@ -15,7 +15,7 @@ class Server{
     }
 
     async dbConectar(){
-        await dbConnection()
+        await dbconnection()
     }
 
 
@@ -39,5 +39,4 @@ class Server{
     }
 
 }
-
 module.exports = Server
