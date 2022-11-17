@@ -1,7 +1,6 @@
 const { response } = require('express')
-const { find } = require('../models/productos')
 const productos = require('../models/productos')
-const Produc = require('../models/productos')
+
 
 const getProductos = async (req, res = response) => {
     // const { nombre, raza, peso } = req.query
@@ -18,7 +17,7 @@ const postProductos = async (req, res) => {
 
     //recibir parametros y desestructurarlos 
     // instanciar el objeto con los parametros y recibirlos
-    const Productos = new Produc({ nombre, Descripcion, Precio })
+    const Productos = new productos({ nombre, Descripcion, Precio })
 
 
     await Productos.save()
@@ -33,7 +32,7 @@ const deleteProdcuto = async(req,res)=>{
 
 
         const  { nombre } =req.query
-        const producto = await Produc.findOneAndDelete({nombre : nombre})
+        const producto = await productos.findOneAndDelete({nombre : nombre})
 
         res.json({
             msg: 'Delete api Productos',
@@ -45,7 +44,7 @@ const deleteProdcuto = async(req,res)=>{
 const putProducto = async (req,res) => {
 
     const {nombre,nombrenew,Descripcion,Precio} = req.body
-    const modificar = await Produc.findOneAndUpdate({nombre : nombre}, {nombre: nombrenew, Descripcion:Descripcion , Precio : Precio})
+    const modificar = await productos.findOneAndUpdate({nombre : nombre}, {nombre: nombrenew, Descripcion:Descripcion , Precio : Precio})
 
     res.json({
         msg:'Put api Productos',
