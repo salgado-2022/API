@@ -5,9 +5,8 @@ const dbConnection = require('../database/config')
 class Server{
     constructor(){
         this.app = express()
-        this.port = process.env.port
+        this.port = process.env.PORT
         this.pedidoPath = "/api/pedido"
-        this.ventasPath = "/api/ventas"
         this.productosPath = "/api/productos"
         this.middlewares()
         this.routes()
@@ -24,7 +23,6 @@ class Server{
 
     routes(){
         this.app.use(this.pedidoPath, require("../routes/pedidos"))
-        this.app.use(this.ventasPath, require("../routes/Ventas"))
         this.app.use(this.productosPath, require("../routes/productos"))
     }
 
